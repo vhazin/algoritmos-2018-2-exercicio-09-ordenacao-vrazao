@@ -17,9 +17,11 @@ int main(void)
     start = clock();
     insertionSort(array, length);
     stop = clock();
+    printf("\nThis algorithm runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
+
     for (x = 0; x < length; x++)
         printf(" %d ", array[x]);
-    printf("\nThis algorithm runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
+
     return 0;
 }
 

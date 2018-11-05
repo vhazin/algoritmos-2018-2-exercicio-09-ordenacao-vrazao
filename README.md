@@ -1,15 +1,14 @@
-Implementar em Dupla:
+# Comparação de algoritmos de sort
+
+## Algoritmos implementados
 
 - Selection Sort
 - Bubble Sort
 - Insertion Sort
-- Heap Sort 
+- Heap Sort
 - Merge Sort
 
+## Alunos
 
-
-
-
-
-# algoritmos-2018-2-exercicio-09-ordenacao-vrazao
-algoritmos-2018-2-exercicio-09-ordenacao-vrazao created by GitHub Classroom
+- Jonathan Coutinho
+- Otacilio Maia
