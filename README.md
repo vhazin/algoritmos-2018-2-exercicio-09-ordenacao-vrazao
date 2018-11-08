@@ -1,5 +1,9 @@
 # Comparação de algoritmos de sort
 
+Para rodar digite:
+
+> \$ ./sortsWrappers.x < generate100000
+
 ## Algoritmos implementados
 
 - Selection Sort
