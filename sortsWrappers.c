@@ -15,6 +15,8 @@ int main(void)
 {
     clock_t start, stop;
     int length, *array, *arrayCopy, x;
+
+    scanf("%d", &length);
     array = (int *)malloc(length * sizeof(int));
     arrayCopy = (int *)malloc(length * sizeof(int));
 
@@ -60,6 +62,8 @@ int main(void)
     mergeSort(arrayCopy, 0, length - 1);
     stop = clock();
     printf("\nMerge Sort runned in runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
+
+    printf("\n");
 
     return 0;
 }
