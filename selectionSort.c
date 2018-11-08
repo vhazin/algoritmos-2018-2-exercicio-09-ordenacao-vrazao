@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-void bubbleSort(int *a, int size);
+void swap(int *xp, int *yp);
+void selectionSort(int *arr, int n);
 
 int main(void)
 {
@@ -16,23 +17,32 @@ int main(void)
         scanf("%d", &array[x]);
 
     start = clock();
-    bubbleSort(array, length);
+    selectionSort(array, length);
     stop = clock();
+
     for (x = 0; x < length; x++)
         printf(" %d ", array[x]);
-
-    printf("\nThis algorithm runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
     return 0;
 }
 
-void bubbleSort(int *a, int size)
+void swap(int *xp, int *yp)
 {
-    for (int i = size; i > 0; i--)
-        for (int j = 0; j < i - 1; j++)
-            if (a[j] > a[j + 1])
-            {
-                int t = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = t;
-            }
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+void selectionSort(int *arr, int n)
+{
+    int i, j, min_idx;
+
+    for (i = 0; i < n - 1; i++)
+    {
+        min_idx = i;
+        for (j = i + 1; j < n; j++)
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+
+        swap(&arr[min_idx], &arr[i]);
+    }
 }

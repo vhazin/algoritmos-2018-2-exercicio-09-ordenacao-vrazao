@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void build_heap(int *array, int length);
 void heapify(int *array, int subIndice, int length);
 
 int main(void)
 {
+    clock_t start, stop;
     int length, *array, x;
     printf("Choose the length of your array: ");
     scanf("%d", &length);
@@ -13,9 +15,13 @@ int main(void)
     array = (int *)malloc(length * sizeof(int));
     for (x = 0; x < length; x++)
         scanf("%d", &array[x]);
+    start = clock();
     build_heap(array, length);
+    stop = clock();
     for (x = 0; x < length; x++)
         printf(" %d ", array[x]);
+
+    printf("\nThis algorithm runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
     return 0;
 }
 

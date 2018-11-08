@@ -1,5 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+void mergeSort(int *a, int l, int h);
+
+int main(void)
+{
+    clock_t start, stop;
+    int length, *array, x;
+    printf("Choose the length of your array: ");
+    scanf("%d", &length);
+    printf("Now type your array with numbers and an space between: ");
+    array = (int *)malloc(length * sizeof(int));
+    for (x = 0; x < length; x++)
+        scanf("%d", &array[x]);
+    start = clock();
+    mergeSort(array, 0, length - 1);
+    stop = clock();
+    for (x = 0; x < length; x++)
+        printf(" %d ", array[x]);
+    printf("\nThis algorithm runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
+    return 0;
+}
 
 void mergeSort(int *a, int l, int h)
 {
@@ -41,19 +63,4 @@ void mergeSort(int *a, int l, int h)
             a[l + k] = b[k];
         }
     }
-}
-
-int main(void)
-{
-    int length, *array, x;
-    printf("Choose the length of your array: ");
-    scanf("%d", &length);
-    printf("Now type your array with numbers and an space between: ");
-    array = (int *)malloc(length * sizeof(int));
-    for (x = 0; x < length; x++)
-        scanf("%d", &array[x]);
-    mergeSort(array, 0, length - 1);
-    for (x = 0; x < length; x++)
-        printf(" %d ", array[x]);
-    return 0;
 }
