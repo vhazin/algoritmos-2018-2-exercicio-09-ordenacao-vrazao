@@ -10,6 +10,8 @@ void bubbleSort(int *a, int size);
 void build_heap(int *array, int length);
 void heapify(int *array, int subIndice, int length);
 void mergeSort(int *a, int l, int h);
+int partition(int arr[], int low, int high);
+void quickSort(int arr[], int low, int high);
 
 int main(void)
 {
@@ -62,6 +64,13 @@ int main(void)
     mergeSort(arrayCopy, 0, length - 1);
     stop = clock();
     printf("\nMerge Sort runned in runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
+
+    for (x = 0; x < length; x++)
+        arrayCopy[x] = array[x];
+    start = clock();
+    quickSort(arrayCopy, 0, length - 1);
+    stop = clock();
+    printf("\nQuick Sort runned in runned in: %f s", (double)(stop - start) / CLOCKS_PER_SEC);
 
     printf("\n");
 
@@ -193,5 +202,32 @@ void mergeSort(int *a, int l, int h)
         {
             a[l + k] = b[k];
         }
+    }
+}
+
+int partition(int arr[], int low, int high)
+{
+    int pivot = arr[high];
+    int i = (low - 1);
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (arr[j] <= pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 }
