@@ -27,9 +27,9 @@ int main(void)
 
 void bubbleSort(int *a, int size)
 {
-    for (int i = size; i > 0; i--)
+    for (int i = size; i > 0; i--) // coloca em ordem crescente (1,2,3,4,5...)
         for (int j = 0; j < i - 1; j++)
-            if (a[j] > a[j + 1])
+            if (a[j] > a[j + 1]) // se o (x > (x+1)) então o x passa pra frente (ordem crescente)
             {
                 int t = a[j];
                 a[j] = a[j + 1];
