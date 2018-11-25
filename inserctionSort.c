@@ -32,7 +32,8 @@ void insertionSort(int *arr, int n)
     {
         key = arr[i];     // Pega o segundo elemento do array
         j = i - 1;
-        while (j >= 0 && arr[j] > key) // Compara se os elementos anteriores ao Key são maiores que ele. Se sim, ele anda o arry para direita e insere o valor na posição correta.
+        //move elementos que são maior que key, para uma posição à frente da sua posição atual 
+        while (j >= 0 && arr[j] > key) // 
         {
             arr[j + 1] = arr[j];
             j = j - 1;
