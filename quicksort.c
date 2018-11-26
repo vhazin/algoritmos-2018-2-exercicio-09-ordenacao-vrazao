@@ -3,13 +3,13 @@ void quick_sort(int *a, int left, int right) {
      
     i = left;
     j = right;
-    x = a[(left + right) / 2];
+    x = a[(left + right) / 2]; // Pivo
      
     while(i <= j) {
-        while(a[i] < x && i < right) {
+        while(a[i] < x && i < right) { // buscando valores maiores que o pivo 
             i++;
         }
-        while(a[j] > x && j > left) {
+        while(a[j] > x && j > left) { // Buscando valores menores que o pivo
             j--;
         }
         if(i <= j) {
